@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>All Accounts</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:900px;
+            margin:40px auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        h1{
+            text-align:center;
+            color:darkblue;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        table, th, td{
+            border:1px solid gray;
+        }
+
+        th{
+            background:darkblue;
+            color:white;
+            padding:10px;
+        }
+
+        td{
+            padding:10px;
+            text-align:center;
+        }
+
+        tr:nth-child(even){
+            background:#f8f8f8;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:darkblue;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .back:hover{
+            background:blue;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏦 Global Trust Bank</h1>
+
+<h2 align="center">All Bank Accounts</h2>
+
+<table>
+
+<tr>
+
+<th>Account Number</th>
+
+<th>Name</th>
+
+<th>Phone Number</th>
+
+<th>Address</th>
+
+<th>Balance</th>
+
+</tr>
+
+{% for account in accounts %}
+
+<tr>
+
+<td>{{ account.account_number }}</td>
+
+<td>{{ account.name }}</td>
+
+<td>{{ account.phone_number }}</td>
+
+<td>{{ account.address }}</td>
+
+<td>Rs. {{ account.balance }}</td>
+
+</tr>
+
+{% empty %}
+
+<tr>
+
+<td colspan="5">
+
+No Accounts Found
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a href="/" class="back">
+
+⬅ Back to Home
+
+</a>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Global Trust Bank</title>
+
+    <style>
+
+        body{
+            background:#f2f2f2;
+            font-family:Arial;
+        }
+
+        .container{
+            width:700px;
+            margin:40px auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        h1{
+            text-align:center;
+            color:darkblue;
+        }
+
+        h3{
+            text-align:center;
+            color:gray;
+        }
+
+        .button{
+            display:block;
+            width:250px;
+            margin:15px auto;
+            padding:15px;
+            background:darkblue;
+            color:white;
+            text-decoration:none;
+            text-align:center;
+            border-radius:5px;
+            font-size:18px;
+        }
+
+        .button:hover{
+            background:blue;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏦 Global Trust Bank</h1>
+
+<h3>Banking Management System</h3>
+
+<hr>
+
+<a href="{% url 'create_account' %}" class="button">
+Create New Account
+</a>
+
+<a href="{% url 'all_accounts' %}" class="button">
+View All Accounts
+</a>
+
+<a href="{% url 'get_account' %}" class="button">
+Search Account
+</a>
+
+<a href="{% url 'deposit' %}" class="button">
+Deposit Money
+</a>
+
+<a href="{% url 'withdraw' %}" class="button">
+Withdraw Money
+</a>
+
+<a href="{% url 'update_account' %}" class="button">
+Update Account
+</a>
+
+<a href="{% url 'delete_account' %}" class="button">
+Delete Account
+</a>
+
+</div>
+
+</body>
+</html>

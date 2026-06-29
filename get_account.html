@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Search Account</title>
+
+    <style>
+
+        body{
+            background:#f2f2f2;
+            font-family:Arial;
+        }
+
+        .container{
+            width:500px;
+            margin:40px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        h1{
+            text-align:center;
+            color:darkblue;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+            margin-bottom:15px;
+            box-sizing:border-box;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:darkblue;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:blue;
+        }
+
+        .result{
+            margin-top:25px;
+            border:1px solid gray;
+            padding:15px;
+            border-radius:5px;
+        }
+
+        .message{
+            color:red;
+            text-align:center;
+            margin-top:15px;
+        }
+
+        a{
+            text-decoration:none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏦 Search Account</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input
+type="number"
+name="account_number"
+placeholder="Enter Account Number"
+required
+>
+
+<button type="submit">
+
+Search
+
+</button>
+
+</form>
+
+{% if account %}
+
+<div class="result">
+
+<p><b>Account Number:</b> {{ account.account_number }}</p>
+
+<p><b>Name:</b> {{ account.name }}</p>
+
+<p><b>Phone:</b> {{ account.phone_number }}</p>
+
+<p><b>Address:</b> {{ account.address }}</p>
+
+<p><b>Balance:</b> Rs. {{ account.balance }}</p>
+
+</div>
+
+{% endif %}
+
+{% if message %}
+
+<p class="message">
+
+{{ message }}
+
+</p>
+
+{% endif %}
+
+<br>
+
+<a href="/">
+
+<button type="button">
+
+Back to Home
+
+</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>

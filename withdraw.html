@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Withdraw Money</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:450px;
+            margin:40px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        h1{
+            text-align:center;
+            color:darkblue;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+            margin-bottom:15px;
+            box-sizing:border-box;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:darkblue;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:blue;
+        }
+
+        .message{
+            color:green;
+            text-align:center;
+            font-weight:bold;
+        }
+
+        .error{
+            color:red;
+            text-align:center;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏦 Withdraw Money</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input
+type="number"
+name="account_number"
+placeholder="Enter Account Number"
+required>
+
+<input
+type="number"
+step="0.01"
+name="amount"
+placeholder="Enter Withdraw Amount"
+required>
+
+<button type="submit">
+
+Withdraw
+
+</button>
+
+</form>
+
+{% if account %}
+
+<hr>
+
+<h3>Account Information</h3>
+
+<p><b>Name:</b> {{ account.name }}</p>
+
+<p><b>Account Number:</b> {{ account.account_number }}</p>
+
+<p><b>Current Balance:</b> Rs. {{ account.balance }}</p>
+
+{% endif %}
+
+{% if message %}
+
+<p class="message">
+
+{{ message }}
+
+</p>
+
+{% endif %}
+
+{% if error %}
+
+<p class="error">
+
+{{ error }}
+
+</p>
+
+{% endif %}
+
+<br>
+
+<a href="/">
+
+<button type="button">
+
+Back to Home
+
+</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>
